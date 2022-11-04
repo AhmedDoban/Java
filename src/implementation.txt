@@ -1,0 +1,31 @@
+        // initialization
+        String planetext ="";
+        String cipherText="";
+        int key ;
+        // take an input
+        System.out.print("Enter the text to Cipher it : ");
+        Scanner text = new Scanner(System.in);
+        planetext = text.next();
+        System.out.print("Enter the key : ");
+        Scanner keyinput = new Scanner(System.in);
+        key = keyinput.nextInt();
+
+        // encrypt the text by implementation
+        for (int i = 0 ; i < planetext.length() ; i++){
+            int encrypt = ((int) ( planetext.charAt(i) - 65 ) + key ) % 26 + 65 ;
+            cipherText += (char) encrypt;
+        }
+            System.out.println(cipherText);
+        // decrypt the text by implementation
+        for (int i = 0 ; i < (cipherText.length()/2-2) ; i++){
+
+            int decrypt = ((int) ( cipherText.charAt(i) - 65 ) - key ) % 26  ;
+            if(decrypt > 0){
+                decrypt += 26 + 65 ;
+            }
+            else {
+                decrypt += 65;
+            }
+            planetext += (char) decrypt;
+        }
+        System.out.println(planetext);
